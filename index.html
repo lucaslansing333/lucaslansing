@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lucas Lansing — A Private Practice in Contemplative Living</title>
+<meta name="description" content="A private practice in contemplative living, somatic health, and conscious partnership. Incline Village, Lake Tahoe — by introduction." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Lucas Lansing" />
+<meta property="og:description" content="A private practice in contemplative living, somatic health, and conscious partnership. Incline Village, Lake Tahoe — by introduction." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts: Fraunces (display, variable optical size + soft/sharp axis) + EB Garamond (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     LUCAS LANSING — HOMEPAGE
+     Editorial-contemplative design system
+     ============================================================ */
+
+  :root {
+    /* Color: paper, ink, alpine green, faded gold */
+    --paper:        #F2EDE3;   /* warm off-white */
+    --paper-deep:   #EBE4D5;   /* slightly aged */
+    --ink:          #1F1B16;   /* deep brown-black */
+    --ink-soft:     #4A4036;   /* secondary text */
+    --ink-fade:     #7A6F62;   /* tertiary, captions */
+    --rule:         #C9BFAB;   /* hairline divider */
+    --moss:         #3D4A38;   /* alpine forest accent */
+    --ember:        #8A5A2B;   /* faded ochre, links */
+
+    /* Typography */
+    --serif-display: "Fraunces", "Times New Roman", serif;
+    --serif-body:    "EB Garamond", Georgia, serif;
+
+    /* Spatial scale (golden-ratio adjacent) */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.618rem;
+    --space-4: 2.618rem;
+    --space-5: 4.236rem;
+    --space-6: 6.854rem;
+    --space-7: 11.09rem;
+
+    /* Layout */
+    --col-narrow: 38rem;
+    --col-wide:   62rem;
+    --gutter:     clamp(1.5rem, 4vw, 3rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--serif-body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      /* subtle paper grain via SVG noise */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 220px 220px;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  .display {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 380;
+    font-weight: 380;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  em, .italic {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 360;
+  }
+
+  .small-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    font-family: var(--serif-body);
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .roman {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 14, "wght" 400;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--ember);
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 220ms ease, border-color 220ms ease;
+  }
+
+  a:hover { color: var(--ember); border-bottom-color: var(--ember); }
+
+  /* ============================================================
+     LAYOUT WRAPPERS
+     ============================================================ */
+
+  .page {
+    max-width: 86rem;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  .col-narrow { max-width: var(--col-narrow); }
+  .col-wide   { max-width: var(--col-wide); }
+
+  /* ============================================================
+     HEADER / NAV
+     ============================================================ */
+
+  .site-header {
+    padding: var(--space-3) 0 var(--space-2);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .brand {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 36, "wght" 420;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    border: none;
+  }
+
+  .brand-meta {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--ink-fade);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .brand-meta span {
+    display: inline-block;
+    padding: 0 var(--space-2);
+  }
+
+  nav.primary ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  nav.primary a {
+    border: none;
+    font-family: var(--serif-body);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--ember);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 320ms ease;
+  }
+
+  nav.primary a:hover { color: var(--ink); }
+  nav.primary a:hover::after { transform: scaleX(1); }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+
+  .hero {
+    padding: var(--space-6) 0 var(--space-5);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--ink-fade);
+  }
+
+  .hero-eyebrow .rule-short {
+    width: 3rem;
+    height: 1px;
+    background: var(--ember);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 20, "wght" 360;
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    max-width: 18ch;
+  }
+
+  .hero h1 .br-soft { display: block; }
+
+  .hero h1 em {
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 340;
+    color: var(--moss);
+  }
+
+  .hero-tagline {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 36, "SOFT" 80, "wght" 350;
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--ink-soft);
+    max-width: 32rem;
+    margin-top: var(--space-3);
+  }
+
+  .hero-meta {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+    color: var(--ink-fade);
+  }
+
+  .hero-meta .dot {
+    width: 4px; height: 4px;
+    background: var(--ember);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ============================================================
+     SECTION DIVIDER (subtle ornament)
+     ============================================================ */
+
+  .ornament {
+    text-align: center;
+    padding: var(--space-5) 0;
+    color: var(--ember);
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    letter-spacing: 0.4em;
+  }
+
+  .ornament::before, .ornament::after {
+    content: "";
+    display: inline-block;
+    width: 4rem; height: 1px;
+    background: var(--rule);
+    vertical-align: middle;
+    margin: 0 var(--space-2);
+  }
+
+  /* ============================================================
+     OPENING ESSAY
+     ============================================================ */
+
+  .opening {
+    padding: var(--space-4) 0 var(--space-5);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 900px) {
+    .opening {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-4);
+    }
+  }
+
+  .opening .label {
+    color: var(--ink-fade);
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-1);
+  }
+
+  .opening p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 38rem;
+  }
+
+  .opening p:first-of-type::first-letter {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+    font-size: 4.6rem;
+    line-height: 0.8;
+    float: left;
+    padding: 0.4rem 0.7rem 0 0;
+    color: var(--moss);
+  }
+
+  .opening p + p {
+    margin-top: var(--space-3);
+  }
+
+  .lineage-link {
+    margin-top: var(--space-3);
+    display: inline-block;
+    font-style: italic;
+    color: var(--ember);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ============================================================
+     THE WORK — three engagements
+     ============================================================ */
+
+  .work {
+    padding: var(--space-5) 0 var(--space-5);
+    border-top: 1px solid var(--rule);
+  }
+
+  .work-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  @media (min-width: 900px) {
+    .work-header {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-4);
+    }
+  }
+
+  .work-header h2 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 380;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    max-width: 16ch;
+  }
+
+  .work-header h2 em {
+    color: var(--moss);
+  }
+
+  .work-header .work-intro {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 36rem;
+  }
+
+  .engagements {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 900px) {
+    .engagements {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+  }
+
+  .engagement {
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform 400ms ease;
+  }
+
+  .engagement .roman {
+    color: var(--ember);
+    font-size: 1rem;
+  }
+
+  .engagement h3 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 72, "SOFT" 30, "wght" 380;
+    font-size: 1.85rem;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-top: var(--space-1);
+  }
+
+  .engagement h3 em { color: var(--moss); }
+
+  .engagement p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 24rem;
+  }
+
+  .engagement .more {
+    margin-top: auto;
+    padding-top: var(--space-2);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ember);
+    border: none;
+    align-self: flex-start;
+  }
+
+  .engagement .more::after {
+    content: " →";
+    transition: transform 240ms ease, padding 240ms ease;
+    display: inline-block;
+  }
+
+  .engagement .more:hover::after {
+    padding-left: 0.25rem;
+  }
+
+  /* ============================================================
+     LINEAGE PULL-QUOTE
+     ============================================================ */
+
+  .pull {
+    padding: var(--space-6) 0;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pull blockquote {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 320;
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+
+  .pull blockquote em {
+    color: var(--moss);
+  }
+
+  .pull cite {
+    display: block;
+    margin-top: var(--space-3);
+    font-style: normal;
+    font-family: var(--serif-body);
+    color: var(--ink-fade);
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ============================================================
+     CONTACT INVITATION
+     ============================================================ */
+
+  .invite {
+    padding: var(--space-6) 0 var(--space-5);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 900px) {
+    .invite { grid-template-columns: 1fr 2fr; gap: var(--space-4); }
+  }
+
+  .invite .label {
+    color: var(--ink-fade);
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-1);
+  }
+
+  .invite h2 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 360;
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+  }
+
+  .invite h2 em { color: var(--moss); }
+
+  .invite p {
+    margin-top: var(--space-3);
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  .invite .cta {
+    margin-top: var(--space-3);
+    display: inline-block;
+    padding: 0.85rem 1.4rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 1rem;
+    border: none;
+    transition: background 280ms ease;
+  }
+
+  .invite .cta:hover {
+    background: var(--moss);
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: var(--space-3) 0;
+    margin-top: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    color: var(--ink-fade);
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 700px) {
+    footer { grid-template-columns: 1fr auto 1fr; align-items: center; }
+    footer .footer-center { text-align: center; }
+    footer .footer-right  { text-align: right; }
+  }
+
+  footer a {
+    border: none;
+    color: var(--ink-soft);
+  }
+
+  footer a:hover { color: var(--ember); }
+
+  /* ============================================================
+     STAGGERED REVEAL ON LOAD
+     ============================================================ */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise 1.2s ease forwards;
+  }
+
+  .reveal.r1 { animation-delay: 0.1s; }
+  .reveal.r2 { animation-delay: 0.35s; }
+  .reveal.r3 { animation-delay: 0.6s; }
+  .reveal.r4 { animation-delay: 0.85s; }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Respect motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ============================================================
+     RESPONSIVE TIDY
+     ============================================================ */
+
+  @media (max-width: 720px) {
+    .site-header { grid-template-columns: 1fr; gap: var(--space-2); }
+    .brand-meta { display: none; }
+    nav.primary ul { flex-wrap: wrap; gap: var(--space-2); }
+    .hero { padding: var(--space-5) 0 var(--space-4); }
+    .opening p:first-of-type::first-letter {
+      font-size: 3.6rem;
+      padding-right: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+     ============================================================ -->
+<header class="page site-header">
+  <a href="/" class="brand">Lucas Lansing</a>
+  <div class="brand-meta">
+    <span>Incline Village</span><span>·</span><span>Lake Tahoe</span>
+  </div>
+  <nav class="primary" aria-label="Primary">
+    <ul>
+      <li><a href="/the-practice">The Practice</a></li>
+      <li><a href="/the-work">The Work</a></li>
+      <li><a href="/lineage">The Lineage</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="page">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-eyebrow reveal r1">
+      <span class="rule-short"></span>
+      <span class="small-caps">A private practice — by introduction</span>
+    </div>
+
+    <h1 class="reveal r2">
+      You&rsquo;ve built<br/>
+      the life.<br/>
+      Now <em>inhabit</em> it.
+    </h1>
+
+    <p class="hero-tagline reveal r3">
+      A private practice in contemplative living, somatic health, and conscious partnership.
+    </p>
+
+    <div class="hero-meta reveal r4">
+      <span class="small-caps">Lucas Lansing Coaching</span>
+      <span class="dot"></span>
+      <span class="small-caps">Established 2018</span>
+      <span class="dot"></span>
+      <span class="small-caps">Kriya Yoga · Ananda Lineage</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ORNAMENT
+       ============================================================ -->
+  <div class="ornament" aria-hidden="true">&middot; &nbsp; &nbsp; &middot; &nbsp; &nbsp; &middot;</div>
+
+  <!-- ============================================================
+       OPENING ESSAY
+       ============================================================ -->
+  <section class="opening">
+    <div>
+      <p class="small-caps label">On the practice</p>
+    </div>
+    <div class="col-narrow">
+      <p>
+        For nearly a decade, Lucas Lansing has worked privately with founders, executives, families, and partners navigating the inner cost of a high-output life. The work draws from the Kriya Yoga and Ananda Meditation lineage of Paramhansa Yogananda, alongside somatic, nutritional, and movement practices developed across fifteen years of teaching.
+      </p>
+      <p>
+        Clients come for clarity, nervous system repair, and a relationship with their own life that no longer runs on borrowed energy.
+      </p>
+      <a href="/lineage" class="lineage-link">On the tradition behind this work →</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE WORK
+       ============================================================ -->
+  <section class="work" id="the-work">
+    <div class="work-header">
+      <h2>Three forms of <em>engagement.</em></h2>
+      <p class="work-intro">
+        Each engagement is held privately, by Lucas and Callie Lansing together, for a small number of clients each year. Length, location, and design are calibrated to the client and the season they are in.
+      </p>
+    </div>
+
+    <div class="engagements">
+
+      <article class="engagement">
+        <span class="roman">I.</span>
+        <h3>The Concierge <em>Engagement</em></h3>
+        <p>
+          A six-month private engagement for individuals seeking sustained, integrated work across meditation, somatic health, nutrition, partnership, and inner life. Three intensives anchor the engagement; weekly sessions and asynchronous access hold what unfolds between them.
+        </p>
+        <a href="/the-work/concierge" class="more">Learn more</a>
+      </article>
+
+      <article class="engagement">
+        <span class="roman">II.</span>
+        <h3>Private <em>Retreats</em></h3>
+        <p>
+          Three to five days, designed and held for one client, one couple, one family, or a small private group. Conducted by Lucas and Callie at our home studio, at the client&rsquo;s residence, or at a Tahoe rental prepared for the retreat.
+        </p>
+        <a href="/the-work/retreats" class="more">Learn more</a>
+      </article>
+
+      <article class="engagement">
+        <span class="roman">III.</span>
+        <h3>Family &amp; Founder <em>Programs</em></h3>
+        <p>
+          Ongoing engagements for families, family offices, and founder-led companies seeking sustained contemplative and somatic support across a year or more. Annual retainer; bespoke by design.
+        </p>
+        <a href="/the-work/family-founder" class="more">Inquire</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PULL QUOTE / LINEAGE LINE
+       ============================================================ -->
+  <section class="pull">
+    <blockquote>
+      The body is the <em>instrument.</em><br/>
+      The nervous system is the <em>door.</em>
+    </blockquote>
+    <cite>From the Kriya Yoga lineage of Paramhansa Yogananda</cite>
+  </section>
+
+  <!-- ============================================================
+       INVITATION
+       ============================================================ -->
+  <section class="invite" id="contact">
+    <div>
+      <p class="small-caps label">Beginning</p>
+    </div>
+    <div class="col-narrow">
+      <h2>Begin with a <em>conversation.</em></h2>
+      <p>
+        The practice opens new client engagements a small number of times each year. If the work resonates, you are invited to write. Each engagement begins with a private conversation; if the work is a fit on both sides, the engagement is designed together.
+      </p>
+      <a href="/contact" class="cta">Request an introduction</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="page">
+  <div class="footer-left">
+    <span class="small-caps">Lucas &amp; Callie Lansing</span>
+  </div>
+  <div class="footer-center">
+    Incline Village, Lake Tahoe &nbsp;·&nbsp; By introduction
+  </div>
+  <div class="footer-right">
+    <a href="/lineage">Lineage</a> &nbsp;·&nbsp;
+    <a href="/writing">Writing</a> &nbsp;·&nbsp;
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

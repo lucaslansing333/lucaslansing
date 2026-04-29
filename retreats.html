@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Private Retreats — Lucas Lansing</title>
+<meta name="description" content="Three to five days, designed and held for one client, one couple, one family, or a small private group. Conducted by Lucas Lansing and Callie Lansing in Lake Tahoe." />
+
+<meta property="og:title" content="Private Retreats — Lucas Lansing" />
+<meta property="og:description" content="Three to five days, designed and held for one client, one couple, one family, or a small private group." />
+<meta property="og:type" content="article" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     LUCAS LANSING — PRIVATE RETREATS
+     Editorial-contemplative design system (matched to site)
+     ============================================================ */
+
+  :root {
+    --paper:        #F2EDE3;
+    --paper-deep:   #EBE4D5;
+    --ink:          #1F1B16;
+    --ink-soft:     #4A4036;
+    --ink-fade:     #7A6F62;
+    --rule:         #C9BFAB;
+    --moss:         #3D4A38;
+    --ember:        #8A5A2B;
+
+    --serif-display: "Fraunces", "Times New Roman", serif;
+    --serif-body:    "EB Garamond", Georgia, serif;
+
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.618rem;
+    --space-4: 2.618rem;
+    --space-5: 4.236rem;
+    --space-6: 6.854rem;
+    --space-7: 11.09rem;
+
+    --col-narrow: 38rem;
+    --col-read:   34rem;
+    --col-wide:   62rem;
+    --gutter:     clamp(1.5rem, 4vw, 3rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--serif-body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 220px 220px;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  em, .italic {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 360;
+  }
+
+  .small-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    font-family: var(--serif-body);
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 220ms ease, border-color 220ms ease;
+  }
+
+  a:hover { color: var(--ember); border-bottom-color: var(--ember); }
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+
+  .page {
+    max-width: 86rem;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  /* ============================================================
+     HEADER / NAV
+     ============================================================ */
+
+  .site-header {
+    padding: var(--space-3) 0 var(--space-2);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .brand {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 36, "wght" 420;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    border: none;
+  }
+
+  .brand-meta {
+    font-family: var(--serif-body);
+    font-style: italic;
+    color: var(--ink-fade);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .brand-meta span {
+    display: inline-block;
+    padding: 0 var(--space-2);
+  }
+
+  nav.primary ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  nav.primary a {
+    border: none;
+    font-family: var(--serif-body);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--ember);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 320ms ease;
+  }
+
+  nav.primary a.current { color: var(--ink); }
+  nav.primary a.current::after { transform: scaleX(1); }
+  nav.primary a:hover { color: var(--ink); }
+  nav.primary a:hover::after { transform: scaleX(1); }
+
+  /* ============================================================
+     ARTICLE HEADER
+     ============================================================ */
+
+  .article-header {
+    padding: var(--space-6) 0 var(--space-4);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 900px) {
+    .article-header {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-4);
+      align-items: end;
+    }
+  }
+
+  .article-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--ink-fade);
+    margin-bottom: var(--space-2);
+  }
+
+  .article-eyebrow .rule-short {
+    width: 2rem; height: 1px;
+    background: var(--ember);
+    display: inline-block;
+  }
+
+  .article-roman {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 72, "SOFT" 80, "wght" 380;
+    font-size: 1.6rem;
+    color: var(--ember);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-2);
+  }
+
+  .article-title {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 360;
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .article-title em {
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 340;
+    color: var(--moss);
+  }
+
+  .article-intro {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 36, "SOFT" 80, "wght" 350;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 32rem;
+  }
+
+  /* ============================================================
+     SECTION
+     ============================================================ */
+
+  .section {
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section:first-of-type {
+    border-top: none;
+    padding-top: var(--space-5);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  @media (min-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-4);
+      align-items: baseline;
+    }
+  }
+
+  .section-head .label {
+    color: var(--ink-fade);
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-1);
+  }
+
+  .section-head h2 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 380;
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    max-width: 18ch;
+  }
+
+  .section-head h2 em { color: var(--moss); }
+
+  /* ============================================================
+     READING BODY
+     ============================================================ */
+
+  .reading {
+    max-width: var(--col-read);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reading p {
+    font-size: 1.18rem;
+    line-height: 1.72;
+    margin-bottom: var(--space-3);
+  }
+
+  .reading p em { color: var(--moss); }
+
+  .reading p.lede::first-letter {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 400;
+    font-size: 4.6rem;
+    line-height: 0.82;
+    float: left;
+    padding: 0.45rem 0.7rem 0 0;
+    color: var(--moss);
+  }
+
+  /* ============================================================
+     OPENING LOGIC — the "cleansed before moved" line as hero
+     ============================================================ */
+
+  .logic-block {
+    padding: var(--space-5) 0;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: var(--space-4) auto;
+    max-width: var(--col-wide);
+  }
+
+  .logic-block .label {
+    color: var(--ink-fade);
+    margin-bottom: var(--space-3);
+  }
+
+  .logic-block blockquote {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 320;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  .logic-block blockquote em {
+    color: var(--moss);
+  }
+
+  /* ============================================================
+     DAY RHYTHM — the day broken into stations
+     ============================================================ */
+
+  .day-rhythm {
+    max-width: var(--col-wide);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .station {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .station:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (min-width: 800px) {
+    .station {
+      grid-template-columns: 8rem 9rem 1fr;
+      gap: var(--space-3);
+      align-items: baseline;
+    }
+  }
+
+  .station .time {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 36, "SOFT" 80, "wght" 360;
+    font-size: 0.95rem;
+    color: var(--ember);
+    letter-spacing: 0.05em;
+  }
+
+  .station .name {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 36, "wght" 480;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+
+  .station .description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 36rem;
+  }
+
+  .station .description em { color: var(--moss); }
+
+  /* ============================================================
+     ARC OF DAYS — four cards showing the four-day arc
+     ============================================================ */
+
+  .arc {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: var(--col-wide);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 700px) {
+    .arc { grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
+  }
+
+  .arc-day {
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-2);
+  }
+
+  .arc-day .day-label {
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 36, "SOFT" 80, "wght" 360;
+    color: var(--ember);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
+  .arc-day .day-verb {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 360;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--moss);
+    margin-top: var(--space-1);
+    font-style: italic;
+  }
+
+  .arc-day .day-note {
+    margin-top: var(--space-2);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* ============================================================
+     STRUCTURE BLOCKS (setting, who is present, design)
+     ============================================================ */
+
+  .structure-blocks {
+    max-width: var(--col-read);
+    margin: 0 auto;
+  }
+
+  .structure-block {
+    margin-bottom: var(--space-4);
+  }
+
+  .structure-block:last-child { margin-bottom: 0; }
+
+  .structure-block p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .structure-block p strong {
+    color: var(--ink);
+    font-weight: 600;
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 36, "wght" 500;
+    letter-spacing: -0.005em;
+  }
+
+  .structure-block p em { color: var(--moss); }
+
+  /* ============================================================
+     BEGINNING BLOCK
+     ============================================================ */
+
+  .beginning {
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 900px) {
+    .beginning {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-4);
+    }
+  }
+
+  .beginning .label {
+    color: var(--ink-fade);
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-1);
+  }
+
+  .beginning h2 {
+    font-family: var(--serif-display);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 360;
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    max-width: 16ch;
+  }
+
+  .beginning h2 em { color: var(--moss); }
+
+  .beginning p {
+    margin-top: var(--space-2);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  .beginning .investment {
+    margin-top: var(--space-3);
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .beginning .cta {
+    margin-top: var(--space-3);
+    display: inline-block;
+    padding: 0.85rem 1.4rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 1rem;
+    border: none;
+    transition: background 280ms ease;
+  }
+
+  .beginning .cta:hover { background: var(--moss); }
+
+  /* ============================================================
+     CONTINUE NAVIGATION
+     ============================================================ */
+
+  .continue {
+    border-top: 1px solid var(--rule);
+    padding: var(--space-4) 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    max-width: var(--col-wide);
+    margin: var(--space-5) auto 0;
+  }
+
+  .continue .col { padding: var(--space-2) 0; }
+
+  .continue .label {
+    color: var(--ink-fade);
+    margin-bottom: var(--space-1);
+  }
+
+  .continue .col a {
+    border: none;
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 36, "SOFT" 80, "wght" 360;
+    font-size: 1.4rem;
+    color: var(--ink);
+    line-height: 1.2;
+    display: inline-block;
+  }
+
+  .continue .col a:hover { color: var(--ember); }
+  .continue .col.right { text-align: right; }
+
+  .continue .arrow {
+    color: var(--ember);
+    transition: padding 240ms ease;
+    display: inline-block;
+  }
+
+  .continue .col a:hover .arrow { padding-left: 0.25rem; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: var(--space-3) 0;
+    margin-top: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    color: var(--ink-fade);
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 700px) {
+    footer { grid-template-columns: 1fr auto 1fr; align-items: center; }
+    footer .footer-center { text-align: center; }
+    footer .footer-right  { text-align: right; }
+  }
+
+  footer a { border: none; color: var(--ink-soft); }
+  footer a:hover { color: var(--ember); }
+
+  /* ============================================================
+     STAGGERED REVEAL
+     ============================================================ */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: rise 1.2s ease forwards;
+  }
+
+  .reveal.r1 { animation-delay: 0.1s; }
+  .reveal.r2 { animation-delay: 0.3s; }
+  .reveal.r3 { animation-delay: 0.55s; }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+
+  @media (max-width: 720px) {
+    .site-header { grid-template-columns: 1fr; gap: var(--space-2); }
+    .brand-meta { display: none; }
+    nav.primary ul { flex-wrap: wrap; gap: var(--space-2); }
+    .article-header { padding: var(--space-5) 0 var(--space-3); }
+    .reading p.lede::first-letter {
+      font-size: 3.6rem;
+      padding-right: 0.5rem;
+    }
+    .continue { grid-template-columns: 1fr; }
+    .continue .col.right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+     ============================================================ -->
+<header class="page site-header">
+  <a href="/" class="brand">Lucas Lansing</a>
+  <div class="brand-meta">
+    <span>Incline Village</span><span>·</span><span>Lake Tahoe</span>
+  </div>
+  <nav class="primary" aria-label="Primary">
+    <ul>
+      <li><a href="/the-practice">The Practice</a></li>
+      <li><a href="/the-work" class="current">The Work</a></li>
+      <li><a href="/lineage">The Lineage</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="page">
+
+  <!-- ============================================================
+       ARTICLE HEADER
+       ============================================================ -->
+  <header class="article-header">
+    <div class="reveal r1">
+      <div class="article-eyebrow">
+        <span class="rule-short"></span>
+        <span class="small-caps">The Work · II</span>
+      </div>
+      <div class="article-roman">II.</div>
+      <h1 class="article-title">Private <em>Retreats</em></h1>
+    </div>
+
+    <p class="article-intro reveal r2">
+      Three to five days, designed and held for one client, one couple, one family, or a small private group. Conducted by Lucas Lansing and Callie Lansing.
+    </p>
+  </header>
+
+  <!-- ============================================================
+       WHAT A RETREAT IS
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">What a retreat is</p>
+      <h2>A <em>designed pause.</em></h2>
+    </div>
+
+    <div class="reading">
+      <p class="lede">
+        A private retreat is a designed pause. Three to five days held entirely around a single client or household, in a setting chosen for its quiet, with the rhythms of cleansing, movement, nourishment, bodywork, and contemplative practice woven across each day with intention.
+      </p>
+      <p>
+        Most retreats are four days, Thursday through Sunday. Length, location, and design are calibrated to the client and the season they are in.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO RETREATS ARE FOR
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">Who retreats are for</p>
+      <h2>Held around a single <em>household.</em></h2>
+    </div>
+
+    <div class="reading">
+      <p>
+        Couples seeking a few days of unhurried presence with each other before the next chapter. Founders and executives who need to step out of the operating tempo of their lives long enough for the nervous system to actually <em>exhale</em>. Families gathering — sometimes across generations — who want time together that is structured around something deeper than logistics. Individuals at thresholds: between roles, between decisions, between seasons of a life.
+      </p>
+      <p>
+        The shape of the retreat is determined by who is in it. A retreat for one founder is not a retreat for a couple, and a retreat for a family of seven is not a retreat for a couple. Each is designed accordingly.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE LOGIC OF A DAY — hero quote
+       ============================================================ -->
+  <section class="logic-block">
+    <p class="small-caps label">The logic of a retreat day</p>
+    <blockquote>
+      The body is <em>cleansed</em> before it is moved, <em>moved</em> before it is fed, <em>fed</em> before it is worked, <em>worked</em> before it is rested, <em>rested</em> before it is met with stillness.
+    </blockquote>
+  </section>
+
+  <!-- ============================================================
+       THE RHYTHM OF A TYPICAL DAY
+       ============================================================ -->
+  <section class="section" style="border-top: none; padding-top: var(--space-3);">
+    <div class="section-head">
+      <p class="small-caps label">The rhythm of a typical day</p>
+      <h2>Morning to <em>evening,</em> woven through.</h2>
+    </div>
+
+    <div class="day-rhythm">
+
+      <div class="station">
+        <div class="time">Early morning</div>
+        <div class="name">Cleansing</div>
+        <div class="description">
+          Ayurvedic practices to clear the body before the day begins — neti, oil pulling, tongue scraping. The system is tuned before it is asked to work.
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="time">Morning</div>
+        <div class="name">Yoga &amp; smoothie</div>
+        <div class="description">
+          A morning yoga practice followed by a liver-supportive smoothie. Movement before food; food in service of the practice.
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="time">Late morning</div>
+        <div class="name">Strength &amp; conditioning</div>
+        <div class="description">
+          Resistance training calibrated to the client, followed by a second nourishing smoothie. The body is taught to produce energy by spending it.
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="time">Midday</div>
+        <div class="name">Lunch</div>
+        <div class="description">
+          Prepared to the client's protocol and dietary needs. The pace of the day shifts from active to integrative.
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="time">Afternoon</div>
+        <div class="name">Bodywork &amp; regulation</div>
+        <div class="description">
+          Massage, nervous system regulation, four-hands healing where appropriate, and contrast therapy in the sauna and cold plunge. The held part of the day.
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="time">Evening</div>
+        <div class="name">Dinner &amp; meditation</div>
+        <div class="description">
+          A quiet dinner. The day closes with an evening meditation, often Hong-Sau, and an early sleep.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE ARC OF DAYS
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">The arc across the retreat</p>
+      <h2>Each day <em>opens</em> what the previous one prepared.</h2>
+    </div>
+
+    <div class="arc">
+
+      <div class="arc-day">
+        <div class="day-label">Day one</div>
+        <div class="day-verb">Clears</div>
+        <div class="day-note">The body sets down what it arrived carrying.</div>
+      </div>
+
+      <div class="arc-day">
+        <div class="day-label">Day two</div>
+        <div class="day-verb">Deepens</div>
+        <div class="day-note">The practice settles into the system. The mind begins to rest.</div>
+      </div>
+
+      <div class="arc-day">
+        <div class="day-label">Day three</div>
+        <div class="day-verb">Opens</div>
+        <div class="day-note">The deeper work, often unspoken, begins to surface.</div>
+      </div>
+
+      <div class="arc-day">
+        <div class="day-label">Day four</div>
+        <div class="day-verb">Integrates</div>
+        <div class="day-note">The client returns to ordinary life carrying something they did not arrive with.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SETTING
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">Setting</p>
+      <h2>Held in <em>Tahoe,</em> or where the work can land.</h2>
+    </div>
+
+    <div class="structure-blocks">
+      <div class="structure-block">
+        <p>
+          Retreats are held either at a Tahoe rental selected and prepared in advance for the client, or at the client's own residence — wherever the rhythm of the days can be most fully held.
+        </p>
+      </div>
+
+      <div class="structure-block">
+        <p>
+          Tahoe is a particular landscape. The lake itself, the alpine air, the proximity of stillness — these are not incidental to the work. For clients who travel here, the setting is part of the retreat. For clients hosting at their own residence, the practice is brought to them.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO IS PRESENT
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">Who is present</p>
+      <h2>A small, known <em>team.</em></h2>
+    </div>
+
+    <div class="structure-blocks">
+      <div class="structure-block">
+        <p>
+          Retreats are conducted by Lucas Lansing and Callie Lansing together. Meals are prepared by us, or by a chef brought in for the retreat where the client prefers. Massage is given by Lucas; for retreats with multiple participants, additional licensed massage therapists are brought in.
+        </p>
+      </div>
+
+      <div class="structure-block">
+        <p>
+          <strong>The team is kept small and known.</strong> The client is not navigating a rotating cast of practitioners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW RETREATS ARE DESIGNED
+       ============================================================ -->
+  <section class="section">
+    <div class="section-head">
+      <p class="small-caps label">How retreats are designed</p>
+      <h2>Built in <em>advance,</em> adjusted on the ground.</h2>
+    </div>
+
+    <div class="reading">
+      <p>
+        Each retreat is designed in advance. Following an initial conversation, we build a draft schedule and a draft protocol — meals, modalities, bodywork, integration time, any additional practitioners — and review it with the client before the retreat begins. Adjustments are made on the ground as the days unfold. <em>No two retreats are identical.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BEGINNING
+       ============================================================ -->
+  <section class="beginning">
+    <div>
+      <p class="small-caps label">How retreats begin</p>
+    </div>
+    <div>
+      <h2>Each retreat begins with a <em>conversation.</em></h2>
+      <p>
+        Retreats are scheduled a small number of times each year. If, after an initial conversation, the work is a fit on both sides, design and scheduling follow.
+      </p>
+      <p class="investment">Investment is discussed in conversation.</p>
+      <a href="mailto:lucas.lansing.coaching@gmail.com" class="cta">Request an introduction</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTINUE NAVIGATION
+       ============================================================ -->
+  <nav class="continue" aria-label="Continue reading">
+    <div class="col">
+      <div class="small-caps label">Return</div>
+      <a href="/the-work/concierge"><span class="arrow">←</span> The Concierge Engagement</a>
+    </div>
+    <div class="col right">
+      <div class="small-caps label">Continue</div>
+      <a href="/the-work/family-founder">Family &amp; Founder Programs <span class="arrow">→</span></a>
+    </div>
+  </nav>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="page">
+  <div class="footer-left">
+    <span class="small-caps">Lucas &amp; Callie Lansing</span>
+  </div>
+  <div class="footer-center">
+    Incline Village, Lake Tahoe &nbsp;·&nbsp; By introduction
+  </div>
+  <div class="footer-right">
+    <a href="/lineage">Lineage</a> &nbsp;·&nbsp;
+    <a href="/writing">Writing</a> &nbsp;·&nbsp;
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
